@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordion {
+    width: 1000px;
+}
+
+.accordion-toggle {
+    display: none;
+}
+
+.accordion-header {
+    padding: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    display: block;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion-item {
+    border-bottom: 1px solid gray;
+}
+
+/* accordion content */
+.accordion-content {
+    height: 0;
+    overflow: hidden;
+    interpolate-size: allow-keywords;
+    transition:
+        height 0.2s ease-out,
+        opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+.accordion-toggle:checked + .accordion-header + .accordion-content {
+    opacity: 1;
+    height: auto;
+}
+
+.accordion-content div {
+    margin: 0;
+    padding: 0 10px 10px 10px;
+    font-size: 14pt;
+}
+
+.accordion-content div p {
+    margin: 0;
+    padding: 0 10px 10px 10px;
+}
+
+/* card */
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.card span {
+    font-weight: bold;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-col-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+.hide {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+#accordion1:checked + label .hide {
+    transform: rotate(90deg);
+}
+
+#accordion2:checked + label .hide {
+    transform: rotate(90deg);
+}
+
+#accordion3:checked + label .hide {
+    transform: rotate(90deg);
+}
+
+#accordion4:checked + label .hide {
+    transform: rotate(90deg);
+}
